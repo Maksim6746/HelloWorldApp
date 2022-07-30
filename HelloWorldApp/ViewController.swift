@@ -24,7 +24,6 @@ class ViewController: UIViewController {
     private let lightOn: CGFloat = 1
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

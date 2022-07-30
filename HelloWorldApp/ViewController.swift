@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     var trafficLightSignals = TrafficLightSignals.red
     let lightOff: CGFloat = 0.3
     let lightOn: CGFloat = 1
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

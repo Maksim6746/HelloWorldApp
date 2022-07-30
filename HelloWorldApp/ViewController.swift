@@ -15,17 +15,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         greetingLabel.isHidden = true
-        greetingButton.layer.cornerRadius = 10
+//        greetingButton.layer.cornerRadius = 10
+        greetingButton.configuration = setupButton(with: "Show Greeting")
 
     }
 
     @IBAction func greetingButtonPressed() {
         greetingLabel.isHidden.toggle()
         
-        greetingButton.setTitle(
-            greetingLabel.isHidden ? " Show Greeting" : "Hide Greeting",
-            for: .normal
-        )
+        greetingButton.configuration = setupButton(with: greetingLabel.isHidden ? "Show Greeting" : "Hide Greeting")
         
 //        if greetingLabel.isHidden {
 //            greetingButton.setTitle("Show Greeting", for: .normal)
@@ -34,5 +32,14 @@ class ViewController: UIViewController {
 //        }
     }
     
+    private func setupButton(with title: String) -> UIButton.Configuration {
+        var buttonConfiguration = UIButton.Configuration.filled()
+        buttonConfiguration.baseBackgroundColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
+        buttonConfiguration.title = title
+        buttonConfiguration.buttonSize = .large
+        buttonConfiguration.cornerStyle = .large
+        buttonConfiguration.attributedTitle?.font = UIFont.systemFont(ofSize: 24)
+        return buttonConfiguration
+    }
 }
 

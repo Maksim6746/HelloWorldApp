@@ -19,9 +19,9 @@ class ViewController: UIViewController {
         case red, yeelow, green
     }
     
-    private var trafficLightSignals = TrafficLightSignals.red
-    private let lightOff: CGFloat = 0.3
-    private let lightOn: CGFloat = 1
+    var trafficLightSignals = TrafficLightSignals.red
+    let lightOff: CGFloat = 0.3
+    let lightOn: CGFloat = 1
     
     
     
@@ -41,6 +41,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func startButtonClick() {
+        
         startButton.setTitle("NEXT", for: .normal)
         
         switch trafficLightSignals {

@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum TrafficLightSignal {
+    case red, yellow, green
+}
+
 class ViewController: UIViewController {
     
     @IBOutlet var redLight: UIView!
@@ -15,11 +19,8 @@ class ViewController: UIViewController {
     
     @IBOutlet var startButton: UIButton!
     
-    enum TrafficLightSignals {
-        case red, yeelow, green
-    }
     
-    var trafficLightSignals = TrafficLightSignals.red
+    var trafficLightSignal = TrafficLightSignal.red
     let lightOff: CGFloat = 0.3
     let lightOn: CGFloat = 1
 
@@ -42,22 +43,19 @@ class ViewController: UIViewController {
     @IBAction func startButtonClick() {
         startButton.setTitle("NEXT", for: .normal)
         
-        switch trafficLightSignals {
+        switch trafficLightSignal {
         case .red:
-            yellowLight.alpha = lightOff
             greenLight.alpha = lightOff
             redLight.alpha = lightOn
-            trafficLightSignals = .yeelow
-        case .yeelow:
+            trafficLightSignal = .yellow
+        case .yellow:
             redLight.alpha = lightOff
-            greenLight.alpha = lightOff
             yellowLight.alpha = lightOn
-            trafficLightSignals = .green
+            trafficLightSignal = .green
         case .green:
-            redLight.alpha = lightOff
             yellowLight.alpha = lightOff
             greenLight.alpha = lightOn
-            trafficLightSignals = .red
+            trafficLightSignal = .red
         }
         if greenLight.alpha == lightOn {
             startButton.setTitle("RESTART", for: .normal)
